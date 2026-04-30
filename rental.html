@@ -74,30 +74,32 @@
         body { 
             font-family: 'Noto Sans KR', 'Manrope', sans-serif;
             -webkit-tap-highlight-color: transparent;
+            overflow: hidden; /* Prevent body scroll */
         }
-        /* Mobile scroll behavior */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Custom scrollbar for main content */
+        .custom-scroll::-webkit-scrollbar { width: 4px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #e5e2df; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-background text-on-background selection:bg-primary-fixed">
+<body class="bg-gray-100 text-on-background selection:bg-primary-fixed">
 
     <!-- Mobile Wrapper -->
-    <div class="max-w-[480px] mx-auto min-h-screen relative flex flex-col bg-white shadow-2xl">
+    <div class="max-w-[480px] mx-auto h-screen relative flex flex-col bg-white shadow-2xl overflow-hidden">
         
-        <!-- Top App Bar -->
-        <header class="fixed top-0 w-full max-w-[480px] z-[100] flex justify-between items-center px-4 h-16 bg-white/80 backdrop-blur-md border-b border-outline-variant/30">
-            <button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 active:scale-90 transition-all">
+        <!-- Top App Bar (Fixed inside wrapper) -->
+        <header class="absolute top-0 left-0 right-0 z-[100] flex justify-between items-center px-4 h-16 bg-white/90 backdrop-blur-md border-b border-outline-variant/30">
+            <button onclick="history.back()" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 active:scale-90 transition-all">
                 <span class="material-symbols-outlined text-on-surface">arrow_back</span>
             </button>
-            <h1 class="font-['Manrope'] text-lg font-bold text-primary tracking-tight">Campus Rent</h1>
+            <h1 class="font-['Manrope'] text-lg font-bold text-primary tracking-tight">대여하기</h1>
             <button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 active:scale-90 transition-all">
                 <span class="material-symbols-outlined text-on-surface">more_vert</span>
             </button>
         </header>
 
-        <!-- Main Content -->
-        <main class="flex-1 pt-20 pb-32 px-5">
+        <!-- Scrollable Main Content -->
+        <main class="flex-1 overflow-y-auto pt-20 pb-40 px-5 custom-scroll">
             <!-- Item Info -->
             <section class="mb-8 flex gap-4 items-center p-4 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm">
                 <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-black/5">
@@ -131,13 +133,11 @@
                         <div class="text-[11px] font-bold text-on-surface-variant">토</div>
                     </div>
                     <div class="grid grid-cols-7 gap-y-3 text-center">
-                        <!-- Previous Month -->
                         <div class="text-sm text-outline-variant/40 py-2">26</div>
                         <div class="text-sm text-outline-variant/40 py-2">27</div>
                         <div class="text-sm text-outline-variant/40 py-2">28</div>
                         <div class="text-sm text-outline-variant/40 py-2">29</div>
                         <div class="text-sm text-outline-variant/40 py-2">30</div>
-                        <!-- Current Month (May 2026 starts on Friday) -->
                         <div class="text-sm py-2">1</div>
                         <div class="text-sm py-2">2</div>
                         <div class="text-sm py-2 text-error/70">3</div>
@@ -152,7 +152,7 @@
                         <div class="text-sm py-2">12</div>
                         <div class="text-sm py-2">13</div>
                         
-                        <!-- Selected Days -->
+                        <!-- Selected Range -->
                         <div class="relative flex items-center justify-center">
                             <div class="absolute inset-y-0.5 left-1/2 right-0 bg-primary-fixed"></div>
                             <button class="relative z-10 w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white font-bold text-sm">14</button>
@@ -199,7 +199,7 @@
             </section>
 
             <!-- Policy & Terms -->
-            <section class="mb-10 space-y-6">
+            <section class="mb-6 space-y-6">
                 <div class="flex gap-3 p-4 bg-primary-fixed/30 rounded-xl">
                     <span class="material-symbols-outlined text-primary shrink-0">info</span>
                     <div class="text-[13px] leading-relaxed text-on-primary-fixed-variant">
@@ -208,7 +208,7 @@
                     </div>
                 </div>
 
-                <div class="space-y-4">
+                <div class="space-y-4 pb-4">
                     <label class="flex items-center gap-3 cursor-pointer group">
                         <div class="relative w-6 h-6 shrink-0">
                             <input type="checkbox" class="peer hidden" checked />
@@ -231,9 +231,9 @@
             </section>
         </main>
 
-        <!-- Bottom CTA -->
-        <footer class="fixed bottom-0 w-full max-w-[480px] p-5 bg-white/90 backdrop-blur-xl border-t border-outline-variant/20">
-            <button class="w-full h-14 bg-primary text-white rounded-2xl font-bold text-lg shadow-xl shadow-primary/20 active:scale-[0.97] transition-transform flex items-center justify-center gap-2">
+        <!-- Bottom CTA (Fixed inside wrapper) -->
+        <footer class="absolute bottom-0 left-0 right-0 p-5 bg-white/95 backdrop-blur-xl border-t border-outline-variant/20 z-[100]">
+            <button class="w-full h-14 bg-primary text-white rounded-2xl font-bold text-lg shadow-xl shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
                 <span class="material-symbols-outlined">payments</span>
                 40,000원 결제 및 대여 확정
             </button>
