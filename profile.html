@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed": "#cceacc",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#623f18",
+                        "on-surface": "#1c1c1a",
+                        "primary-container": "#5f7a61",
+                        "on-secondary-container": "#526478",
+                        "surface-container-low": "#f7f3f0",
+                        "secondary": "#4e6073",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fcf9f6",
+                        "tertiary-container": "#956b40",
+                        "tertiary-fixed": "#ffdcbd",
+                        "on-primary-container": "#efffec",
+                        "background": "#fcf9f6",
+                        "outline-variant": "#c3c8bf",
+                        "secondary-fixed": "#d1e4fb",
+                        "secondary-fixed-dim": "#b5c8df",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f4f0ed",
+                        "surface-variant": "#e5e2df",
+                        "on-surface-variant": "#434842",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#cfe2f9",
+                        "surface-tint": "#4a654d",
+                        "surface-container-highest": "#e5e2df",
+                        "on-primary-fixed": "#07200e",
+                        "inverse-primary": "#b1ceb1",
+                        "tertiary": "#79532a",
+                        "on-tertiary-container": "#fffaf8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#334d36",
+                        "on-background": "#1c1c1a",
+                        "tertiary-fixed-dim": "#f0bd8b",
+                        "on-tertiary-fixed": "#2c1600",
+                        "primary": "#47614a",
+                        "inverse-surface": "#31302e",
+                        "surface-container-high": "#ebe7e4",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ddd9d6",
+                        "surface-container": "#f1edea",
+                        "on-secondary-fixed": "#091d2e",
+                        "surface": "#fcf9f6",
+                        "on-secondary-fixed-variant": "#36485b",
+                        "outline": "#737971",
+                        "primary-fixed-dim": "#b1ceb1"
+                    },
+                    spacing: {
+                        "xxl": "48px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "lg": "24px",
+                        "container-padding": "20px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "manrope": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            background-color: #E8E6E1; /* 배경 대비를 위한 외부 배경색 */
+            font-family: 'Manrope', sans-serif;
+            overflow: hidden; /* 전체 바디 스크롤 방지 */
+        }
+        .material-symbols-outlined { 
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+            vertical-align: middle; 
+        }
+        .active-icon { 
+            font-variation-settings: 'FILL' 1 !important; 
+        }
+        /* 스크롤바 숨기기 (모바일 친화적) */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="flex justify-center h-screen">
+    <!-- Mobile Container (모바일 기기 너비 고정) -->
+    <div class="w-full max-w-[480px] bg-[#fcf9f6] relative flex flex-col h-full shadow-2xl overflow-hidden">
+        
+        <!-- Header (상단 고정) -->
+        <header class="h-16 flex-shrink-0 bg-[#FAF9F6] border-b border-[#E8E6E1] flex justify-between items-center px-5 z-50">
+            <span class="material-symbols-outlined text-[#726D6A] active:opacity-70 transition-opacity cursor-pointer">menu</span>
+            <h1 class="font-bold text-xl text-[#5F7A61] tracking-tighter">Campus-Rent</h1>
+            <div class="flex gap-4">
+                <span class="material-symbols-outlined text-[#726D6A] active:opacity-70 transition-opacity cursor-pointer">chat_bubble</span>
+                <span class="material-symbols-outlined text-[#726D6A] active:opacity-70 transition-opacity cursor-pointer">settings</span>
+            </div>
+        </header>
+
+        <!-- Main Content (스크롤 영역) -->
+        <main class="flex-1 overflow-y-auto no-scrollbar px-container-padding py-6 space-y-lg">
+            
+            <!-- User Profile Section -->
+            <section class="flex items-center gap-md py-md bg-white rounded-2xl p-md shadow-[0_4px_12px_rgba(74,73,71,0.04)] border border-surface-variant/50">
+                <div class="relative">
+                    <img alt="User Profile" class="w-20 h-20 rounded-full object-cover border-2 border-primary-fixed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0e_xu2wIvdw3WfEZ2_DO1PZ9jzcWPYQWqCQSDnJtuATblhzu7sjOEGObFJQGp-is4hbZEAWDDOIhp-zZDKUXY-pHnyH8zTaTY9_ZT7UiHHRHf8eZ8Cl7tixjrPCwj7RTbh_STtkfabwu1arjHqMIBMQHfF_0vk1XC6qI5g-EYqgV-M0i5CnLm7kJtshUOm5B8FDy1-nQhEG6B0xgzdQ9xrpHKZcR0X740owGgyzTHCvIunLJNjEGjlU8rAat9B9rWrWNiXSV7is22">
+                    <div class="absolute bottom-0 right-0 bg-primary w-6 h-6 rounded-full flex items-center justify-center border-2 border-white">
+                        <span class="material-symbols-outlined text-white text-[14px] active-icon">verified</span>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold text-on-surface">김선배</h2>
+                    <p class="text-sm text-on-surface-variant">경영학과 4학년</p>
+                    <div class="mt-2 flex gap-xs">
+                        <span class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded-full text-xs font-semibold">우수 대여자</span>
+                        <span class="bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-0.5 rounded-full text-xs font-semibold">신뢰도 98%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Status Cards (Bento Style) -->
+            <section class="grid grid-cols-3 gap-sm">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-[#E8E6E1] flex flex-col items-center justify-center text-center">
+                    <span class="text-xl font-bold text-primary mb-1">2</span>
+                    <span class="text-xs text-on-surface-variant font-medium">대여 중</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-[#E8E6E1] flex flex-col items-center justify-center text-center">
+                    <span class="text-xl font-bold text-tertiary mb-1">1</span>
+                    <span class="text-xs text-on-surface-variant font-medium">반납 대기</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-[#E8E6E1] flex flex-col items-center justify-center text-center">
+                    <span class="text-xl font-bold text-secondary mb-1">5</span>
+                    <span class="text-xs text-on-surface-variant font-medium">찜한 물품</span>
+                </div>
+            </section>
+
+            <!-- Active Rentals List -->
+            <section class="space-y-md">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-lg font-bold text-on-surface">현재 대여 중인 물품</h3>
+                    <button class="text-xs text-primary underline font-semibold">전체보기</button>
+                </div>
+                
+                <!-- Rental Item 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm flex border border-surface-variant/30">
+                    <div class="w-24 h-24 relative flex-shrink-0">
+                        <img alt="Rental Item" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFnh5qxZcCx_16AGFLnywzUdw7XPx1GRHe7n2zxV6NxgiA8PMu6i1BXfZM7T-XCCgMe-eeFYl8nrAop2Rpn10oDr3GQMKb5ofUKoiiuj5Oxnd-H6P_9MaviR7q0ln8dyhUGzNvjcjoDy-ptRc9__ucqw2U_JV45dTeAp3Gt0f3Iec65lND74FYinPJcyFjVQTe8_0dPPQpGp2lmfPPfY1_fLWv_5iuC_AX3fznmhdxgLoeLZSF4OioNAbQ9duDT_T9iAyeyia_iFy2">
+                        <div class="absolute top-1.5 left-1.5 bg-primary/90 text-white px-2 py-0.5 rounded-full text-[10px] font-bold">D-3</div>
+                    </div>
+                    <div class="p-3 flex flex-col justify-between flex-1">
+                        <div>
+                            <p class="text-[10px] font-bold text-primary mb-0.5">전자기기</p>
+                            <h4 class="text-sm font-bold text-on-surface line-clamp-1">소니 WH-1000XM5 헤드셋</h4>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <span class="text-[11px] text-on-surface-variant">11.24 반납 예정</span>
+                            <button class="bg-[#F0EEEA] text-on-surface-variant px-2.5 py-1 rounded-lg text-[11px] font-bold active:bg-gray-200">연장</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rental Item 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm flex border border-surface-variant/30">
+                    <div class="w-24 h-24 relative flex-shrink-0">
+                        <img alt="Rental Item" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0s6FwFDInKGY8bGCZ4fOxOFB9Fs3YibYLOydWnOieSaG-70kMTdutyXP4Bu5aca1dErNloViOaogPeQhCIcZe_MyWAaqBNMZgY6KZHON-Dd5MvQRxROLmhgjM7lysF64_tpVZzhUL7qo_QNRZaM6TacPCpgq4-LFwsXrVwwWofzFAx_fKiQGIRK3QIW8Ic1X8c-ZdAfSknAf93Pyw_IHKaiQUDeiM682jjQbCBgkxJIRijqhS3-MIw3Yvu1Hk1muhh1DVHiQZqIGZ">
+                        <div class="absolute top-1.5 left-1.5 bg-error text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">D-Day</div>
+                    </div>
+                    <div class="p-3 flex flex-col justify-between flex-1">
+                        <div>
+                            <p class="text-[10px] font-bold text-primary mb-0.5">IT 기기</p>
+                            <h4 class="text-sm font-bold text-on-surface line-clamp-1">맥북 에어 M2 13인치</h4>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <span class="text-[11px] text-error font-bold text-xs">오늘 반납</span>
+                            <button class="bg-primary text-white px-2.5 py-1 rounded-lg text-[11px] font-bold active:opacity-70">반납</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Message Section -->
+            <section class="bg-primary-container p-6 rounded-2xl text-on-primary-container relative overflow-hidden">
+                <div class="relative z-10 space-y-2">
+                    <h3 class="text-lg font-bold">학우들과 소통하세요</h3>
+                    <p class="text-xs opacity-90 leading-relaxed">대여 중인 물품에 대해 궁금한 점이 있다면<br>채팅을 통해 바로 문의할 수 있습니다.</p>
+                    <button class="mt-4 bg-white text-primary px-4 py-2.5 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 active:scale-95 transition-transform">
+                        <span class="material-symbols-outlined text-lg active-icon">chat</span>
+                        메시지함 확인
+                    </button>
+                </div>
+                <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-on-primary-container/10 rounded-full blur-2xl"></div>
+            </section>
+
+            <!-- Bottom Spacer (하단 탭바에 가려지지 않게) -->
+            <div class="h-8"></div>
+        </main>
+
+        <!-- Bottom Tab Bar (하단 고정) -->
+        <nav class="h-20 flex-shrink-0 bg-white/95 backdrop-blur-md border-t border-[#E8E6E1] flex justify-around items-center px-4 pb-4">
+            <a href="index.html" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors">
+                <span class="material-symbols-outlined text-2xl">home</span>
+                <span class="text-[10px] font-bold mt-1">홈</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors">
+                <span class="material-symbols-outlined text-2xl">search</span>
+                <span class="text-[10px] font-bold mt-1">검색</span>
+            </a>
+            <a href="rental.html" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors">
+                <span class="material-symbols-outlined text-2xl">history_edu</span>
+                <span class="text-[10px] font-bold mt-1">내 대여</span>
+            </a>
+            <!-- Active State -->
+            <a href="#" class="flex flex-col items-center justify-center text-[#5F7A61] relative">
+                <span class="material-symbols-outlined text-2xl active-icon">person</span>
+                <span class="text-[10px] font-bold mt-1">프로필</span>
+                <div class="absolute -bottom-2 w-1 h-1 bg-[#5F7A61] rounded-full"></div>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>
