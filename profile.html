@@ -80,9 +80,9 @@
     </script>
     <style>
         body { 
-            background-color: #E8E6E1; /* 배경 대비를 위한 외부 배경색 */
+            background-color: #E8E6E1; 
             font-family: 'Manrope', sans-serif;
-            overflow: hidden; /* 전체 바디 스크롤 방지 */
+            overflow: hidden; 
         }
         .material-symbols-outlined { 
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
@@ -91,16 +91,15 @@
         .active-icon { 
             font-variation-settings: 'FILL' 1 !important; 
         }
-        /* 스크롤바 숨기기 (모바일 친화적) */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="flex justify-center h-screen">
-    <!-- Mobile Container (모바일 기기 너비 고정) -->
+    <!-- Mobile Container -->
     <div class="w-full max-w-[480px] bg-[#fcf9f6] relative flex flex-col h-full shadow-2xl overflow-hidden">
         
-        <!-- Header (상단 고정) -->
+        <!-- Header -->
         <header class="h-16 flex-shrink-0 bg-[#FAF9F6] border-b border-[#E8E6E1] flex justify-between items-center px-5 z-50">
             <span class="material-symbols-outlined text-[#726D6A] active:opacity-70 transition-opacity cursor-pointer">menu</span>
             <h1 class="font-bold text-xl text-[#5F7A61] tracking-tighter">Campus-Rent</h1>
@@ -110,7 +109,7 @@
             </div>
         </header>
 
-        <!-- Main Content (스크롤 영역) -->
+        <!-- Main Content -->
         <main class="flex-1 overflow-y-auto no-scrollbar px-container-padding py-6 space-y-lg">
             
             <!-- User Profile Section -->
@@ -131,7 +130,7 @@
                 </div>
             </section>
 
-            <!-- Status Cards (Bento Style) -->
+            <!-- Status Cards -->
             <section class="grid grid-cols-3 gap-sm">
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-[#E8E6E1] flex flex-col items-center justify-center text-center">
                     <span class="text-xl font-bold text-primary mb-1">2</span>
@@ -204,27 +203,25 @@
                 <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-on-primary-container/10 rounded-full blur-2xl"></div>
             </section>
 
-            <!-- Bottom Spacer (하단 탭바에 가려지지 않게) -->
             <div class="h-8"></div>
         </main>
 
-        <!-- Bottom Tab Bar (하단 고정) -->
+        <!-- Bottom Tab Bar -->
         <nav class="h-20 flex-shrink-0 bg-white/95 backdrop-blur-md border-t border-[#E8E6E1] flex justify-around items-center px-4 pb-4">
-            <a href="index.html" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors">
-                <span class="material-symbols-outlined text-2xl">home</span>
+            <a href="index.html" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors group">
+                <span class="material-symbols-outlined text-2xl group-active:scale-90 transition-transform">home</span>
                 <span class="text-[10px] font-bold mt-1">홈</span>
             </a>
-            <a href="#" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors">
-                <span class="material-symbols-outlined text-2xl">search</span>
+            <a href="#" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors group">
+                <span class="material-symbols-outlined text-2xl group-active:scale-90 transition-transform">search</span>
                 <span class="text-[10px] font-bold mt-1">검색</span>
             </a>
-            <a href="rental.html" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors">
-                <span class="material-symbols-outlined text-2xl">history_edu</span>
+            <a href="rental.html" class="flex flex-col items-center justify-center text-[#A8A29E] hover:text-[#5F7A61] transition-colors group">
+                <span class="material-symbols-outlined text-2xl group-active:scale-90 transition-transform">history_edu</span>
                 <span class="text-[10px] font-bold mt-1">내 대여</span>
             </a>
-            <!-- Active State -->
-            <a href="#" class="flex flex-col items-center justify-center text-[#5F7A61] relative">
-                <span class="material-symbols-outlined text-2xl active-icon">person</span>
+            <a href="profile.html" class="flex flex-col items-center justify-center text-[#5F7A61] relative group">
+                <span class="material-symbols-outlined text-2xl active-icon group-active:scale-90 transition-transform">person</span>
                 <span class="text-[10px] font-bold mt-1">프로필</span>
                 <div class="absolute -bottom-2 w-1 h-1 bg-[#5F7A61] rounded-full"></div>
             </a>
